@@ -26,17 +26,17 @@
 
     function playRound(playerSelection, computerSelection) {
 
-        let ps  = playerSelection.toLowerCase();
-        let cs = computerSelection.toLowerCase();
+        playerSelection  = playerSelection.toLowerCase();
+        computerSelection = computerSelection.toLowerCase();
 
-        if (ps == cs) {
+        if (playerSelection == computerSelection) {
             return 'Tie';
         }
     
         // win cases
-        let rockBeatScissor = (ps == 'rock' && cs == 'scissor' ) ? true : false;
-        let scissorBeatPaper = (ps == 'scissor' && cs == 'paper' ) ? true : false;
-        let paperBeatRock = (ps == 'paper' && cs == 'rock' ) ? true : false;
+        let rockBeatScissor = (playerSelection == 'rock' && computerSelection == 'scissor' ) ? true : false;
+        let scissorBeatPaper = (playerSelection == 'scissor' && computerSelection == 'paper' ) ? true : false;
+        let paperBeatRock = (playerSelection == 'paper' && computerSelection == 'rock' ) ? true : false;
 
         if (rockBeatScissor || scissorBeatPaper|| paperBeatRock) {
             return 'Player';
