@@ -3,15 +3,7 @@ function random(num) {
 }
 
 function computerPlay() {
-    let choice = random(3);
-
-    if (choice == 1) {
-        return 'Rock';
-    } else if (choice == 2) {
-        return 'Paper';
-    } else if (choice == 3) {
-        return 'Scissor';
-    }
+    return ['rock' ,'paper', 'scissor'][random(3)- 1]
 }
 
 function playRound(playerSelection, computerSelection) {
@@ -20,7 +12,7 @@ function playRound(playerSelection, computerSelection) {
     computerSelection = computerSelection.toLowerCase();
 
     if (playerSelection == computerSelection) {
-        return 'Tie';
+        return 'tie';
     }
 
     // win cases
@@ -29,34 +21,30 @@ function playRound(playerSelection, computerSelection) {
     let paperBeatRock = (playerSelection == 'paper' && computerSelection == 'rock' ) ? true : false;
 
     if (rockBeatScissor || scissorBeatPaper|| paperBeatRock) {
-        return 'Player';
+        return 'player';
     } else {
-        return 'Computer';
+        return 'computer';
     }
 }
 
-function game(rounds=1) {
-    let playerScore = 0;
-    let computerScore = 0;
-    let ties = 0
 
-    for (let i = 0; i < rounds; i++) {
-        let getPlayerSelection = prompt("Rock, paper or scissor?");
-        let winner = playRound(getPlayerSelection, computerPlay());
-        if (winner == 'Player') {
-            playerScore += 1;
-        } else if (winner == 'Computer') {
-            computerScore += 1;
-        } else {
-            ties += 1
-        }
-    }
+function playGame(e) {
+    let playerChoice = e.target.getAttribute('data-value');
+    let computerChoice = computerPlay();
 
-    if (playerScore > computerScore) {
-        return `Player wins! Final score = Player: ${playerScore} Computer: ${computerScore} Ties: ${ties}`;
-    } else if (computerScore > playerScore) {
-        return `Computer wins! Final score = Player: ${playerScore} Computer: ${computerScore} Ties: ${ties}`;
-    } else {
-        return `Tie! Final score = Player: ${playerScore} Computer: ${computerScore} Ties: ${ties}`;
-    }
+    let winner = playRound(playerChoice, computerChoice);
+    console.log(winner)
+
+    // TODO:
+    // -updateDisplay() for updating score
+    // -win logic for n rounds
+    // -reset button to start a fresh game
+
 }
+
+const rpsButtons = document.querySelectorAll('.rps');
+
+rpsButtons.forEach((button) => {
+
+    button.addEventListener('click', playGame)
+});
