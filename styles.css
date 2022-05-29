@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 2px solid red;
+}
+
+body {
+    font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* header */
+.header {
+    text-align: center;
+    padding: 16px;
+    font-size: 28px;
+    font-weight: bolder;
+}
+
+/* container for rps buttons */
+.buttons-container {
+    flex: 2 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 120px;
+    
+}
+
+.rps {
+    padding: 18px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+
+
+
+
+
+/* container for live score */
+.score-container {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.player-hand {
+    flex: 2 0 auto;
+    border-top-right-radius: 5%;
+    border-bottom-right-radius: 5%;
+}
+
+.computer-hand {
+    flex: 2 0 auto;
+    border-top-left-radius: 5%;
+    border-bottom-left-radius: 5%;
+    
+}
+
+.score {
+    flex: 1 0 auto;
+    text-align:center;
+}
+
+
+
+.final-result {
+    flex: 2 0 auto;
+}
+
+
+
+/* footer */
+.footer {
+    justify-self: end;
+    text-align: center;
+    padding: 16px;
+}

@@ -4,12 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock Paper Scissor!</title>
     <link rel="stylesheet" href="./styles.css">
     <script src="./rps.js" defer></script>
 </head>
 
 <body>
-    <p>Nothing here yet!</p>
+    <div class="header">ROCK PAPER SCISSORS</div>
+
+    <!-- Container for game inputs -->
+    <div class="buttons-container">
+        <button class="rps">Rock</button>
+        <button class="rps">Paper</button>
+        <button class="rps">Scissor</button>
+    </div>
+
+    <div class="score-container">
+        <div class="player-hand"></div>
+        <div class="score">
+            <p class="score-header">Player | Computer</p>
+            <p class="live-score">0 : 0</p>
+            <p class="round-result">You won this round!</p>
+        </div>
+        <div class="computer-hand"></div>
+    </div>
+
+    <div class="final-result"></div>
+
+    <div class="footer">made by <a href="https://github.com/sleepyadi">sleepyadi</a></div>
 </body>
 </html>
