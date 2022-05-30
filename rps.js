@@ -46,10 +46,12 @@ function updateScore(winner) {
     if (winner == 'player') {
         playerScore += 1;
         return 'You Won this round!';
-    } else if (winner == 'computer'); {
-        computerScore += 1;;
+    } else if (winner == 'computer') {
+        computerScore += 1;
         return 'Computer won this round!';
-    } 
+    } else if (winner == 'tie') {
+        return 'Tie'
+    }
 }
 
 const roundResult = document.querySelector('.round-result');
@@ -58,6 +60,22 @@ const liveScore = document.querySelector('.live-score')
 function displayScore(msg) {
     roundResult.textContent = msg
     liveScore.textContent = `${playerScore} : ${computerScore}`
+}
+
+const finalResult = document.querySelector('.final-result');
+
+function displayWinner(pScore, cScore) {
+    let finalWinner = '';
+
+    if (pScore == 5 || cScore == 5) {
+        finalWinner = (pScore == 5) ? 'Player' : 'Computer';
+        finalResult.textContent = `The ${finalWinner.toUpperCase()} has won this game! `;
+        playerScore = 0;
+        computerScore = 0;
+    } else {
+        finalResult.textContent = '';
+    }
+    
 }
 
 function playGame(e) {
@@ -69,7 +87,7 @@ function playGame(e) {
     displayHands(playerChoice, computerChoice);
     let roundMsg = updateScore(winner);
     displayScore(roundMsg);
-    console.log(winner)
+    displayWinner(playerScore, computerScore)
 
     // TODO:
     // -updateDisplay() for updating score and updateHand() as well maybe
