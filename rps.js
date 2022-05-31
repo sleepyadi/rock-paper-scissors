@@ -11,14 +11,14 @@ function playRound(playerSelection, computerSelection) {
     playerSelection  = playerSelection.toLowerCase();
     computerSelection = computerSelection.toLowerCase();
 
-    if (playerSelection == computerSelection) {
+    if (playerSelection === computerSelection) {
         return 'tie';
     }
 
     // win cases
-    let rockBeatScissor = (playerSelection == 'rock' && computerSelection == 'scissor' ) ? true : false;
-    let scissorBeatPaper = (playerSelection == 'scissor' && computerSelection == 'paper' ) ? true : false;
-    let paperBeatRock = (playerSelection == 'paper' && computerSelection == 'rock' ) ? true : false;
+    let rockBeatScissor = (playerSelection === 'rock' && computerSelection === 'scissor' ) ? true : false;
+    let scissorBeatPaper = (playerSelection === 'scissor' && computerSelection === 'paper' ) ? true : false;
+    let paperBeatRock = (playerSelection === 'paper' && computerSelection === 'rock' ) ? true : false;
 
     if (rockBeatScissor || scissorBeatPaper|| paperBeatRock) {
         return 'player';
@@ -43,13 +43,13 @@ function updateScore(winner) {
 
     winner = winner.toLowerCase();
 
-    if (winner == 'player') {
+    if (winner === 'player') {
         playerScore += 1;
         return 'You Won this round!';
-    } else if (winner == 'computer') {
+    } else if (winner === 'computer') {
         computerScore += 1;
         return 'Computer won this round!';
-    } else if (winner == 'tie') {
+    } else if (winner === 'tie') {
         return 'Tie';
     }
 }
@@ -67,8 +67,8 @@ const finalResult = document.querySelector('.final-result p');
 function displayWinner(pScore, cScore) {
     let finalWinner = '';
 
-    if (pScore == 5 || cScore == 5) {
-        finalWinner = (pScore == 5) ? 'Player' : 'Computer';
+    if (pScore === 5 || cScore === 5) {
+        finalWinner = (pScore === 5) ? 'Player' : 'Computer';
         finalResult.textContent = `The ${finalWinner.toUpperCase()} has won this game! `;
         playerScore = 0;
         computerScore = 0;
