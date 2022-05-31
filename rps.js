@@ -3,7 +3,7 @@ function random(num) {
 }
 
 function computerPlay() {
-    return ['rock' ,'paper', 'scissor'][random(3)- 1]
+    return ['rock' ,'paper', 'scissor'][random(3)- 1];
 }
 
 function playRound(playerSelection, computerSelection) {
@@ -31,8 +31,8 @@ const pHand = document.querySelector('.player-hand p');
 const cHand = document.querySelector('.computer-hand p')
 
 function displayHands(pChoice, cChoice) {
-    pHand.textContent = `You played ${pChoice}`
-    cHand.textContent = `Computer played ${cChoice}`
+    pHand.textContent = `You played ${pChoice}`;
+    cHand.textContent = `Computer played ${cChoice}`;
 }
 
 let playerScore = 0;
@@ -50,16 +50,16 @@ function updateScore(winner) {
         computerScore += 1;
         return 'Computer won this round!';
     } else if (winner == 'tie') {
-        return 'Tie'
+        return 'Tie';
     }
 }
 
 const roundResult = document.querySelector('.round-result');
-const liveScore = document.querySelector('.live-score')
+const liveScore = document.querySelector('.live-score');
 
 function displayScore(msg) {
-    roundResult.textContent = msg
-    liveScore.textContent = `${playerScore} : ${computerScore}`
+    roundResult.textContent = msg;
+    liveScore.textContent = `${playerScore} : ${computerScore}`;
 }
 
 const finalResult = document.querySelector('.final-result p');
@@ -83,17 +83,12 @@ function playGame(e) {
     let computerChoice = computerPlay();
 
     let winner = playRound(playerChoice, computerChoice);
+    let roundMsg = updateScore(winner);
 
     displayHands(playerChoice, computerChoice);
-    let roundMsg = updateScore(winner);
     displayScore(roundMsg);
-    displayWinner(playerScore, computerScore)
+    displayWinner(playerScore, computerScore);
 
-    // TODO:
-    // -updateDisplay() for updating score and updateHand() as well maybe
-    // -win logic for n rounds
-    // -reset button to start a fresh game
-    // work on logic/dynamic stuff first before styling/css or aligning stuff
 
 }
 
