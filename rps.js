@@ -27,8 +27,8 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-const pHand = document.querySelector('.player-hand');
-const cHand = document.querySelector('.computer-hand')
+const pHand = document.querySelector('.player-hand p');
+const cHand = document.querySelector('.computer-hand p')
 
 function displayHands(pChoice, cChoice) {
     pHand.textContent = `You played ${pChoice}`
@@ -62,7 +62,7 @@ function displayScore(msg) {
     liveScore.textContent = `${playerScore} : ${computerScore}`
 }
 
-const finalResult = document.querySelector('.final-result');
+const finalResult = document.querySelector('.final-result p');
 
 function displayWinner(pScore, cScore) {
     let finalWinner = '';
