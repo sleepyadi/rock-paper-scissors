@@ -31,8 +31,13 @@ const pHand = document.querySelector('.player-hand p');
 const cHand = document.querySelector('.computer-hand p')
 
 function displayHands(pChoice, cChoice) {
-    pHand.textContent = `You played ${pChoice}`;
-    cHand.textContent = `Computer played ${cChoice}`;
+    if (pChoice && cChoice) {
+        pHand.textContent = `You played ${pChoice}`;
+        cHand.textContent = `Computer played ${cChoice}`;
+    } else {
+        pHand.textContent = '';
+        cHand.textContent = '';
+    }
 }
 
 let playerScore = 0;
@@ -113,6 +118,7 @@ resetBtn.addEventListener('click', () => {
     rpsButtons.forEach(button => button.disabled = false);
     playerScore = 0;
     computerScore = 0;
+    displayHands('', '');
     displayScore('');
     displayWinner('','');;
     
