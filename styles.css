@@ -66,6 +66,10 @@ body {
 }
 
 
+.hidden {
+    display: none;
+}
+
 
 /* container for live score */
 .score-container {

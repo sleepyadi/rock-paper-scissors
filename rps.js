@@ -62,6 +62,15 @@ function displayScore(msg) {
     liveScore.textContent = `${playerScore} : ${computerScore}`;
 }
 
+const resetBtn = document.querySelector('.reset-button');
+const resetContainer = document.querySelector('.reset-container');
+
+function displayResetButton() {
+    resetContainer.classList.remove('hidden');
+    rpsButtons.forEach(button => button.disabled = true);
+
+}
+
 const finalResult = document.querySelector('.final-result p');
 
 function displayWinner(pScore, cScore) {
@@ -70,8 +79,7 @@ function displayWinner(pScore, cScore) {
     if (pScore === 5 || cScore === 5) {
         finalWinner = (pScore === 5) ? 'Player' : 'Computer';
         finalResult.textContent = `The ${finalWinner.toUpperCase()} has won this game! `;
-        playerScore = 0;
-        computerScore = 0;
+        displayResetButton();
     } else {
         finalResult.textContent = '';
     }
@@ -99,3 +107,13 @@ rpsButtons.forEach((button) => {
 
     button.addEventListener('click', playGame)
 });
+
+resetBtn.addEventListener('click', () => {
+    resetContainer.classList.add('hidden');
+    rpsButtons.forEach(button => button.disabled = false);
+    playerScore = 0;
+    computerScore = 0;
+    displayScore('');
+    displayWinner('','');;
+    
+})
